@@ -243,8 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55535bba85f544c22a5511c2d9cf5d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallpaper: {fileID: 2800000, guid: c63cd88582b7e4c18bdad22ff52ca11c, type: 3}
+  wallpaper: {fileID: 2800000, guid: ebea125603df24c5c93590ab289ea5c1, type: 3}
   buttonWidth: 600
   buttonHeight: 50
   buttonGap: 30
   skin: {fileID: 11400000, guid: 76f138fd98943452a8dd8d140ebb5f55, type: 2}
+  twoPlayer: 0

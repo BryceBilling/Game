@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4a930f56818407a94e8ab015392669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallpaper: {fileID: 2800000, guid: c63cd88582b7e4c18bdad22ff52ca11c, type: 3}
+  wallpaper: {fileID: 2800000, guid: ebea125603df24c5c93590ab289ea5c1, type: 3}
   buttonWidth: 600
   buttonHeight: 50
   buttonGap: 30

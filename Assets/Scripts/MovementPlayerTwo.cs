@@ -1,33 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
-
+public class MovementPlayerTwo : MonoBehaviour {
+	
 	public float speed;
 	public float rotationSpeed;
 	// Use this for initialization
 	void Start () {
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
-		if (Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetKey(KeyCode.A))
 		{
 			transform.Rotate(Vector3.forward*rotationSpeed,rotationSpeed);
 		}
-		if (Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetKey(KeyCode.D))
 		{
 			transform.Rotate(Vector3.back*rotationSpeed,rotationSpeed);
 		}
-		if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.W))
 		{
 			rigidbody2D.AddForce(transform.up*speed);
 		}
-		if (Input.GetKey(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.S))
 		{
 			rigidbody2D.AddForce(transform.up*-speed);;
 		}
-
-
+		
+		
 	}
 }
