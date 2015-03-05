@@ -6,22 +6,27 @@ public class Movement : MonoBehaviour {
 	public float speed;
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.A)){
-			transform.Translate(new Vector3(-speed,0,0)*Time.deltaTime);
+		if (Input.GetKey(KeyCode.LeftArrow))
+		{
+			transform.position += Vector3.left * speed * Time.deltaTime;
 		}
-		if(Input.GetKey(KeyCode.W)){
-			transform.Translate(new Vector3(0,speed,0)*Time.deltaTime);
+		if (Input.GetKey(KeyCode.RightArrow))
+		{
+			transform.position += Vector3.right * speed * Time.deltaTime;
 		}
-		if(Input.GetKey(KeyCode.S)){
-			transform.Translate(new Vector3(0,-speed,0)*Time.deltaTime);
+		if (Input.GetKey(KeyCode.UpArrow))
+		{
+			transform.position += Vector3.up * speed * Time.deltaTime;
 		}
-		if(Input.GetKey(KeyCode.D)){
-			transform.Translate(new Vector3(speed,0,0)*Time.deltaTime);
+		if (Input.GetKey(KeyCode.DownArrow))
+		{
+			transform.position += Vector3.down * speed * Time.deltaTime;
 		}
+
+
 	}
 }
