@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+//Create objects and assign GUI components to them instead of hard coding
 public class LevelSelection : MonoBehaviour 
 {
 	public Texture2D wallpaper;
