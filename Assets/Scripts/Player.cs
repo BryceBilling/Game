@@ -10,9 +10,9 @@ public class Player : MonoBehaviour {
 	public float bulletSpeed;
 	public float fireRate;
 	public float coolDown;
-	public Animation explosion;
+	public GameObject explosion;
 	public float health;
-	public float bulletLife;
+	Animator anim;
 	public enum PlayerType{
 		player1=0,
 		player2=1,
@@ -20,14 +20,16 @@ public class Player : MonoBehaviour {
 	public PlayerType playerType;
 	// Use this for initialization
 	void Start () {
-	
+		health = 100;
+		anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void Update(){
 		if(health<=0){
-			Expode();
+			Explode();
 		}
+
 
 	}
 
@@ -41,17 +43,19 @@ public class Player : MonoBehaviour {
 			}
 			if (Input.GetKey (KeyCode.UpArrow)) {
 				rigidbody2D.AddForce (transform.up * speed);
+
 			}
 			if (Input.GetKey (KeyCode.DownArrow)) {
-				rigidbody2D.AddForce (transform.up * -speed/2);//Because moving backwards is slower than forwards
-				;
+				rigidbody2D.AddForce (transform.up * -speed / 2);//Because moving backwards is slower than forwards
+
 			}
 			if (Input.GetKey (KeyCode.Space)) {
 				if (Time.time >= coolDown) {
 					Shoot ();
 				}
 			}
-		} else {
+		}
+		else {
 			if (Input.GetKey(KeyCode.A))
 			{
 				transform.Rotate(Vector3.forward*rotationSpeed,rotationSpeed);
@@ -76,7 +80,16 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-
+	void OnTriggerEnter2D(Collider2D enemy){
+		Debug.Log (enemy.name);
+		if(enemy.name.Equals("Enemy Bullet(Clone)")){
+			Destroy (enemy.gameObject);
+			if(health<=0){
+				Destroy (gameObject);
+				Explode ();
+			}
+		}
+	}
 	
 	void Shoot(){
 		Rigidbody2D bulletFired = Instantiate (bullet, transform.position, transform.rotation) as Rigidbody2D;		
@@ -84,7 +97,8 @@ public class Player : MonoBehaviour {
 		coolDown = Time.time + fireRate;
 	}
 	
-	void Expode(){
+	void Explode(){
+		Instantiate (explosion, transform.position, transform.rotation);
 
 	}
 }
