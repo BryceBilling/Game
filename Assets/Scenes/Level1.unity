@@ -120,8 +120,12 @@ Prefab:
       objectReference: {fileID: 1578354811}
     - target: {fileID: 11434698, guid: 3c06f8debcf444dbd99fd90d2b388c25, type: 2}
       propertyPath: speed
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11434698, guid: 3c06f8debcf444dbd99fd90d2b388c25, type: 2}
+      propertyPath: bulletCollision
+      value: 
+      objectReference: {fileID: 138604, guid: 3d5993fa961024452b9ce1b9b42c7c25, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c06f8debcf444dbd99fd90d2b388c25, type: 2}
   m_RootGameObject: {fileID: 1418658869}
@@ -158,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846f172dc80c547c8b43a520783574ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 4
   player: {fileID: 1578354811}
   bullet: {fileID: 5067782, guid: d6f4a1948943246ea86f0a1b1630cede, type: 2}
   bulletSpeed: 200
@@ -166,6 +170,7 @@ MonoBehaviour:
   coolDown: 1
   explosion: {fileID: 122760, guid: 79b0e7ec14e4d48e3b3c79250fc380e2, type: 2}
   health: 100
+  bulletCollision: {fileID: 138604, guid: 3d5993fa961024452b9ce1b9b42c7c25, type: 2}
 --- !u!61 &1418658871
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -238,11 +243,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 425952, guid: 0bcda3aedfb294608aba8dd72872c6ec, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.47000003
+      value: .460000008
       objectReference: {fileID: 0}
     - target: {fileID: 425952, guid: 0bcda3aedfb294608aba8dd72872c6ec, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .389999986
+      value: .159999996
       objectReference: {fileID: 0}
     - target: {fileID: 425952, guid: 0bcda3aedfb294608aba8dd72872c6ec, type: 2}
       propertyPath: m_LocalPosition.z
@@ -268,6 +273,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11425952, guid: 0bcda3aedfb294608aba8dd72872c6ec, type: 2}
+      propertyPath: bulletCollision
+      value: 
+      objectReference: {fileID: 138604, guid: 3d5993fa961024452b9ce1b9b42c7c25, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0bcda3aedfb294608aba8dd72872c6ec, type: 2}
   m_RootGameObject: {fileID: 1578354808}
@@ -313,6 +322,7 @@ MonoBehaviour:
   coolDown: 1
   explosion: {fileID: 122760, guid: 79b0e7ec14e4d48e3b3c79250fc380e2, type: 2}
   health: 100
+  bulletCollision: {fileID: 138604, guid: 3d5993fa961024452b9ce1b9b42c7c25, type: 2}
   playerType: 0
 --- !u!212 &1578354810
 SpriteRenderer:
@@ -344,7 +354,7 @@ Transform:
   m_PrefabInternal: {fileID: 1502171555}
   m_GameObject: {fileID: 1578354808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.47000003, y: .389999986, z: 0}
+  m_LocalPosition: {x: .460000008, y: .159999996, z: 0}
   m_LocalScale: {x: .150000006, y: .150000006, z: .150000006}
   m_Children: []
   m_Father: {fileID: 0}

@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour {
 	public float coolDown;
 	public GameObject explosion;
 	public float health;
+	public GameObject bulletCollision;
 	// Use this for initialization
 	void Start () {
 	
@@ -33,11 +34,13 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D enemy){
+	void OnTriggerEnter2D(Collider2D bullet){
 		Debug.Log (health);
-		if(enemy.name.Equals("Player Bullet(Clone)")){
-			health-=10;
-			Destroy (enemy.gameObject);
+		if(bullet.name.Equals("Player Bullet(Clone)")){
+			Bullet BulletScript =bullet.gameObject.GetComponent("Bullet") as Bullet;
+			health-=BulletScript.damage;
+			Instantiate (bulletCollision,bullet.gameObject.transform.position,bullet.gameObject.transform.rotation);
+			Destroy (bullet.gameObject);
 			if(health<=0){
 				Destroy (gameObject);
 				Explode ();

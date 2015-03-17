@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
@@ -12,7 +12,9 @@ public class Player : MonoBehaviour {
 	public float coolDown;
 	public GameObject explosion;
 	public float health;
+	public GameObject bulletCollision;
 	Animator anim;
+
 	public enum PlayerType{
 		player1=0,
 		player2=1,
@@ -80,10 +82,13 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D enemy){
-		Debug.Log (enemy.name);
-		if(enemy.name.Equals("Enemy Bullet(Clone)")){
-			Destroy (enemy.gameObject);
+	void OnTriggerEnter2D(Collider2D bullet){
+		Debug.Log (health);
+		if(bullet.name.Equals("Enemy Bullet(Clone)")){
+			Bullet BulletScript =bullet.gameObject.GetComponent("Bullet") as Bullet;//So can access the 
+			health-=BulletScript.damage;
+			Instantiate (bulletCollision,bullet.gameObject.transform.position,bullet.gameObject.transform.rotation);
+			Destroy (bullet.gameObject);
 			if(health<=0){
 				Destroy (gameObject);
 				Explode ();
