@@ -5,6 +5,8 @@ public class Enemy : MonoBehaviour {
 
 	public float speed;
 	public Transform player;
+	public Transform player2;
+	Transform chasePlayer;
 	public Rigidbody2D bullet;
 	public float bulletSpeed;
 	public float fireRate;
@@ -12,30 +14,48 @@ public class Enemy : MonoBehaviour {
 	public GameObject explosion;
 	public float health;
 	public GameObject bulletCollision;
+	public bool chase;
+	public float distance;
 	// Use this for initialization
 	void Start () {
 	
 	}
 	void Update(){
-		if(player==null){//Game Over
+		if (player2 != null && player != null) {
+			if (Vector3.Distance (transform.position, player.position) < Vector3.Distance (transform.position, player2.position)) {
+				chasePlayer = player;
+			} else {
+				chasePlayer = player2;
+			}
+		} else {
+			chasePlayer=player;
 		}
-		if (Time.time >= coolDown) {
+		if(player==null && player2==null){//Game Over
+			Debug.Log("Game Over");
+			Application.LoadLevel("SplashScreen");
+		}
+		if (Time.time >= coolDown && chase==true) {
 			Shoot ();
 		}
 
+		if (chasePlayer!=null && Vector3.Distance (transform.position, chasePlayer.position) < distance) {
+			chase=true;
+
+		} else {
+			chase=false;
+		}
 
 	}
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (player != null) {
-			float direction = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
+		if (chasePlayer != null && chase) {
+			float direction = Mathf.Atan2 ((chasePlayer.transform.position.y - transform.position.y), (chasePlayer.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
 			transform.eulerAngles = new Vector3 (0, 0, direction);
 			rigidbody2D.AddForce (gameObject.transform.up * speed);
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D bullet){
-		Debug.Log (health);
 		if(bullet.name.Equals("Player Bullet(Clone)")){
 			Bullet BulletScript =bullet.gameObject.GetComponent("Bullet") as Bullet;
 			health-=BulletScript.damage;

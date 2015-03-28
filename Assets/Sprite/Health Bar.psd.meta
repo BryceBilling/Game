@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: 9dabeae0377934fdfbebb4e7d4e1961a
+guid: 4f639998bd549415c94c676ecf9349b1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SpriteSheet_Cannon_0
-    21300002: SpriteSheet_Cannon_1
-    21300004: SpriteSheet_Cannon_2
-    21300006: SpriteSheet_Cannon_3
-    21300008: SpriteSheet_Cannon_4
-    21300010: SpriteSheet_Cannon_5
+    21300000: Health Bar_0
+    21300002: Health Bar_1
+    21300004: Health Bar_2
+    21300006: Health Bar_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +35,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,63 +47,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: SpriteSheet_Cannon_0
+    - name: Health Bar_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 10
-        width: 121
-        height: 150
+        x: 100
+        y: 1277
+        width: 544
+        height: 107
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSheet_Cannon_1
+    - name: Health Bar_1
       rect:
         serializedVersion: 2
-        x: 169
-        y: 10
-        width: 102
-        height: 150
+        x: 102
+        y: 1125
+        width: 43
+        height: 105
+      alignment: 4
+      pivot: {x: 0, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Health Bar_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1029
+        width: 172
+        height: 55
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSheet_Cannon_2
+    - name: Health Bar_3
       rect:
         serializedVersion: 2
-        x: 324
-        y: 8
-        width: 109
-        height: 152
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 3, w: 0}
-    - name: SpriteSheet_Cannon_3
-      rect:
-        serializedVersion: 2
-        x: 483
-        y: 10
-        width: 117
-        height: 150
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSheet_Cannon_4
-      rect:
-        serializedVersion: 2
-        x: 651
-        y: 10
-        width: 99
-        height: 150
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSheet_Cannon_5
-      rect:
-        serializedVersion: 2
-        x: 810
-        y: 10
-        width: 101
-        height: 150
+        x: 103
+        y: 947
+        width: 178
+        height: 62
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
