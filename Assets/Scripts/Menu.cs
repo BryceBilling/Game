@@ -52,11 +52,11 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void Next(){
-		if (level == 1 && twoPlayers) {
-			level=2;
+		Debug.Log (twoPlayers);
+		level++;
+		if (twoPlayers) {
 			Application.LoadLevel ("TwoLevel"+level);
 		} else {
-			level=2;
 			Application.LoadLevel("Level"+level);
 		}
 	}

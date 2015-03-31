@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 
 	public float speed;
+	public float driftSpeed;
 	public Transform player;
 	public Transform player2;
 	Transform chasePlayer;
@@ -16,9 +17,10 @@ public class Enemy : MonoBehaviour {
 	public GameObject bulletCollision;
 	public bool chase;
 	public float distance;
+	public int rotationSpeed;
 	// Use this for initialization
 	void Start () {
-	
+		Invoke("ChangeDirection",rotationSpeed);
 	}
 	void Update(){
 		if (player2 != null && player != null) {
@@ -42,30 +44,52 @@ public class Enemy : MonoBehaviour {
 			chase=true;
 
 		} else {
+			Move();
 			chase=false;
 		}
 
 	}
-	// Update is called once per frame
+
+	void ChangeDirection() {
+		if(Random.value > 0.5f)  {
+			rotationSpeed = -rotationSpeed;
+		}
+		Invoke("ChangeDirection",rotationSpeed);
+	}
+
+	void Move(){
+		transform.Rotate (new Vector3 (0, 0, rotationSpeed * Time.deltaTime));
+		transform.position += transform.up*driftSpeed*Time.deltaTime;
+	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.name == "Island" || coll.gameObject.name=="Big Island" || coll.gameObject.name=="TropicalIsland")
+		{
+			transform.Rotate(new Vector3(0,0,180));
+		}
+	}
+
 	void FixedUpdate () {
-		if (chasePlayer != null && chase) {
+		if (chasePlayer != null && chase && Vector3.Distance (transform.position, chasePlayer.position) > 0.5) {
 			float direction = Mathf.Atan2 ((chasePlayer.transform.position.y - transform.position.y), (chasePlayer.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
 			transform.eulerAngles = new Vector3 (0, 0, direction);
 			rigidbody2D.AddForce (gameObject.transform.up * speed);
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D bullet){
-		if(bullet.name.Equals("Player Bullet(Clone)")){
-			Bullet BulletScript =bullet.gameObject.GetComponent("Bullet") as Bullet;
+	void OnTriggerEnter2D(Collider2D collider){
+		if(collider.name.Equals("Player Bullet(Clone)")){
+			Bullet BulletScript =collider.gameObject.GetComponent("Bullet") as Bullet;
 			health-=BulletScript.damage;
-			Instantiate (bulletCollision,bullet.gameObject.transform.position,bullet.gameObject.transform.rotation);
-			Destroy (bullet.gameObject);
+			Instantiate (bulletCollision,collider.gameObject.transform.position,collider.gameObject.transform.rotation);
+			Destroy (collider.gameObject);
 			if(health<=0){
 				Destroy (gameObject);
 				Explode ();
 			}
 		}
+
 	}
 
 	void Shoot(){

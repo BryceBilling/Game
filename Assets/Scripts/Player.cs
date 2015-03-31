@@ -82,17 +82,19 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D bullet){
-		Debug.Log (health);
-		if(bullet.name.Equals("Enemy Bullet(Clone)")){
-			Bullet BulletScript =bullet.gameObject.GetComponent("Bullet") as Bullet;//So can access the 
+	void OnTriggerEnter2D(Collider2D collider){
+		if(collider.name.Equals("Enemy Bullet(Clone)")){
+			Bullet BulletScript =collider.gameObject.GetComponent("Bullet") as Bullet;//So can access the 
 			health-=BulletScript.damage;
-			Instantiate (bulletCollision,bullet.gameObject.transform.position,bullet.gameObject.transform.rotation);
-			Destroy (bullet.gameObject);
+			Instantiate (bulletCollision,collider.gameObject.transform.position,collider.gameObject.transform.rotation);
+			Destroy (collider.gameObject);
 			if(health<=0){
 				Destroy (gameObject);
 				Explode ();
 			}
+		}
+		if(collider.name.Equals("X")){
+			Application.LoadLevel("WinLevel");
 		}
 	}
 	
