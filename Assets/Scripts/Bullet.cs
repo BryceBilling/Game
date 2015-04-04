@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Die () {
+	void Die () {//Destroys Bullet
 		Destroy (gameObject);
 	}
 }

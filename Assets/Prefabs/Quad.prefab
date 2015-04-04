@@ -14,6 +14,7 @@ GameObject:
   - 68: {fileID: 6866938}
   - 68: {fileID: 6881194}
   - 68: {fileID: 6881196}
+  - 114: {fileID: 11413084}
   m_Layer: 4
   m_Name: Quad
   m_TagString: Untagged
@@ -45,7 +46,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0f56f10627f7245359d17d6c9ac0e243, type: 2}
+  - {fileID: 2100000, guid: ee1c9975374b440e48c553561422ca57, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -108,6 +109,19 @@ EdgeCollider2D:
   m_Points:
   - {x: -.493718415, y: .499388635}
   - {x: .498242348, y: .498962134}
+--- !u!114 &11413084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5516dabe56d3e4882932aa71fdc1836f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  twoPlayers: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

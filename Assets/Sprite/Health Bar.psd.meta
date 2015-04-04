@@ -6,6 +6,10 @@ TextureImporter:
     21300002: Health Bar_1
     21300004: Health Bar_2
     21300006: Health Bar_3
+    21300008: Health Bar_4
+    21300010: Health Bar_5
+    21300012: Health Bar_6
+    21300014: Health Bar_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -84,6 +88,46 @@ TextureImporter:
         y: 947
         width: 178
         height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Health Bar_4
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 479
+        width: 176
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Health Bar_5
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 403
+        width: 181
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Health Bar_6
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 265
+        width: 560
+        height: 99
+      alignment: 4
+      pivot: {x: 0, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Health Bar_7
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 643
+        width: 629
+        height: 274
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

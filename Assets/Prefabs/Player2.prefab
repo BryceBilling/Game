@@ -13,6 +13,7 @@ GameObject:
   - 61: {fileID: 6174430}
   - 114: {fileID: 11474430}
   - 95: {fileID: 9574430}
+  - 82: {fileID: 8293874}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -58,6 +59,64 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1.25, y: 4.71999979}
   m_Center: {x: 0, y: 0}
+--- !u!82 &8293874
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174430}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 28c90aeb5a09c477e9fe2ac980604eba, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9574430
 Animator:
   serializedVersion: 3
@@ -91,8 +150,11 @@ MonoBehaviour:
   fireRate: 1
   coolDown: 1
   explosion: {fileID: 122760, guid: 79b0e7ec14e4d48e3b3c79250fc380e2, type: 2}
-  health: 100
+  health: 0
   bulletCollision: {fileID: 138604, guid: 3d5993fa961024452b9ce1b9b42c7c25, type: 2}
+  maxHealth: 100
+  powerUp: 0
+  helpImage: {fileID: 0}
   playerType: 1
 --- !u!212 &21274430
 SpriteRenderer:

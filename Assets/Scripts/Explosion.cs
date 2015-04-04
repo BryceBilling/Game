@@ -3,13 +3,22 @@ using System.Collections;
 
 public class Explosion : MonoBehaviour {
 	public float length;
+	public int count;
 	// Use this for initialization
 	void Start () {
+		gameObject.audio.Play ();//Plays explosion sound
+		gameObject.audio.time = 2;
+	}
+
+	void Update(){
 		Invoke ("Die",length);
 	}
-	
-	// Update is called once per frame
-	void Die () {
-		Destroy (gameObject);
+
+	void Die () {//Destroys explosion
+		if (!gameObject.audio.isPlaying) {
+			Destroy (gameObject);
+		}
 	}
+
+
 }
